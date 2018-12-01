@@ -4,36 +4,42 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Sacrifice : Choice {
-	bool showDialog = false;
-	bool inputRecieved = false;
+	public GameObject modalWindow;
+	public GameObject sacrificePanel;
+	public Button sacrificeFoodButton;
+
+	private void Awake()
+	{
+		sacrificeFoodButton.onClick.AddListener(SacrificeFood);
+	}
+
 	public override void Resolve()
 	{
-		if (inputRecieved)
+		if (!resolved)
 		{
-			resolved = true;
-			inputRecieved = false;
-			showDialog = false;
-		}
-		else
-		{
-			showDialog = true;
+			ShowModalWindow(true);
 		}
 	}
 
-	public Rect windowRect = new Rect(20, 20, 120, 50);
-	private void OnGUI()
+	public void SacrificeFood()
 	{
-		if (showDialog)
-		{
-			windowRect = GUI.Window(0, windowRect, DoMyWindow, "My Window");
-		}
+		Game.instance.Food -= 1;
+		SetResolved();
 	}
 
-	void DoMyWindow(int windowID)
+	private void SetResolved()
 	{
-		if (GUI.Button(new Rect(10, 20, 100, 20), "Hello World"))
+		resolved = true;
+		ShowModalWindow(false);
+	}
+
+	private void ShowModalWindow(bool show)
+	{
+		modalWindow.gameObject.SetActive(show);
+		sacrificePanel.gameObject.SetActive(show);
+		if (show)
 		{
-			print("Got a click");
+			sacrificeFoodButton.interactable = Game.instance.Food > 0;
 		}
 	}
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Game : MonoBehaviour {
 
-	public enum GameState {Menu, Setup, Input, Resolution};
+	public enum GameState {Menu, Setup, Input, Resolution, GameOver};
 	public GameState currnetState;
 
 	public static Game instance;
@@ -63,6 +64,7 @@ public class Game : MonoBehaviour {
 		SetText(clayText, Clay);
 		SetText(actionsText, Actions);
 		SetText(healthText, Health);
+		restartButton.onClick.AddListener(Restart);
 	}
 
 	void Update ()
@@ -82,6 +84,10 @@ public class Game : MonoBehaviour {
 		else if (currnetState == GameState.Resolution)
 		{
 			Resolution();
+		}
+		else if (currnetState == GameState.GameOver)
+		{
+			GameOver();
 		}
 	}
 
@@ -116,8 +122,24 @@ public class Game : MonoBehaviour {
 		}
 		if (allResolved)
 		{
-			Debug.Log("Resolution -> Setup");
-			currnetState = GameState.Setup;
+			if (Food > 0)
+			{
+				Food--;
+			}
+			else
+			{
+				Health--;
+			}
+			if (Health <= 0)
+			{
+				Debug.Log("Resolution -> GameOver");
+				currnetState = GameState.GameOver;
+			}
+			else
+			{
+				Debug.Log("Resolution -> Setup");
+				currnetState = GameState.Setup;
+			}
 		}
 
 	}
@@ -125,6 +147,22 @@ public class Game : MonoBehaviour {
 	private void SetText(Text text, int value)
 	{
 		text.text = value.ToString();
+	}
+
+
+	public GameObject modalWindow;
+	public GameObject gameOverPanel;
+	public Button restartButton;
+
+	private void GameOver()
+	{
+		modalWindow.SetActive(true);
+		gameOverPanel.SetActive(true);
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene(0);
 	}
 	
 }

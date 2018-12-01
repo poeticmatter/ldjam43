@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Choices : MonoBehaviour {
+	public bool addSacrifice;
 	public int resourceChance = 50;
 	public int badChance = 0;
 	public int opportunityChance = 0;
@@ -35,7 +36,11 @@ public class Choices : MonoBehaviour {
 	public void GenerateChoices(int count)
 	{
 		availableChoices.Clear();
-		//availableChoices.Add(Sacrifice);
+		if (addSacrifice)
+		{
+			availableChoices.Add(Sacrifice);
+			Sacrifice.resolved = false;
+		}
 		CreateAvailableChoices(count - availableChoices.Count);
 		AttachChoicesToUI();
 		

@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Wood : Choice {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public override void Resolve()
+	{
+		base.Resolve();
+		Game.instance.Wood += 1;
 	}
 }
