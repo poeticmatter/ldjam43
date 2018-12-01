@@ -129,17 +129,9 @@ public class Choices : MonoBehaviour {
 		}
 	}
 
-	public List<Choice> GetSelectedChoices()
+	public bool IsChoiceSelected(int choiceIndex)
 	{
-		List<Choice> ret = new List<Choice>();
-		for (int i = 0; i < toggles.Length; i++)
-		{
-			if (toggles[i].isOn)
-			{
-				ret.Add(availableChoices[i]);
-			}
-		}
-		return ret;
+		return toggles[choiceIndex].isOn;
 	}
 
 }

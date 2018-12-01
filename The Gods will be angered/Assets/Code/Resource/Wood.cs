@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Wood : Choice {
 
-	public override void Resolve()
+	public override void Resolve(bool selected)
 	{
-		base.Resolve();
+		base.Resolve(selected);
 		Game.instance.Wood += 1;
 	}
 }

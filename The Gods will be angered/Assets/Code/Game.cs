@@ -109,16 +109,26 @@ public class Game : MonoBehaviour {
 
 	private void Resolution()
 	{
-		List<Choice> actions = Choices.instance.GetSelectedChoices();
-		bool allResolved = true;
-		for (int i = 0; i < actions.Count; i++)
+		List<Choice> actions = Choices.instance.availableChoices;
+		bool allResolved = false;
+		int currentPriority = 0;
+		while (!allResolved && currentPriority < 4)
 		{
-			actions[i].Resolve();
-			if (!actions[i].resolved)
+			allResolved = true;
+			for (int i = 0; i < actions.Count; i++)
 			{
-				allResolved = false;
-				break;
+				if (actions[i].priority > currentPriority)
+				{
+					allResolved = false;
+					continue;
+				}
+				actions[i].Resolve(Choices.instance.IsChoiceSelected(i));
+				if (!actions[i].resolved)
+				{
+					allResolved = false;
+				}
 			}
+
 		}
 		if (allResolved)
 		{

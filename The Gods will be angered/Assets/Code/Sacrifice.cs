@@ -13,11 +13,19 @@ public class Sacrifice : Choice {
 		sacrificeFoodButton.onClick.AddListener(SacrificeFood);
 	}
 
-	public override void Resolve()
+	public override void Resolve(bool selected)
 	{
-		if (!resolved)
+		if (selected)
 		{
-			ShowModalWindow(true);
+			if (!resolved)
+			{
+				ShowModalWindow(true);
+			}
+		}
+		else
+		{
+			//The Gods are angered.
+			resolved = true;
 		}
 	}
 
