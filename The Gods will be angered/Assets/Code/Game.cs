@@ -33,7 +33,7 @@ public class Game : MonoBehaviour {
 	public int Food
 	{
 		get { return _food; }
-		set { _food = value; SetText(foodText, value); }
+		set { _food = value; SetText(foodText, value); Debug.Log("foodchange"); }
 	}
 
 	public int _clay;
@@ -50,6 +50,14 @@ public class Game : MonoBehaviour {
 	{
 		get { return _actions; }
 		set { _actions = value; SetText(actionsText, value); ; }
+	}
+
+	public int _dailyFoodCost;
+	public Text dailyFoodCostText;
+	public int DailyFoodCost
+	{
+		get { return _dailyFoodCost; }
+		set { _dailyFoodCost = value; SetText(dailyFoodCostText, value); ; }
 	}
 
 	void Awake () {
@@ -93,7 +101,7 @@ public class Game : MonoBehaviour {
 
 	private void Setup()
 	{
-		Choices.instance.GenerateChoices(Actions + 1);
+		Choices.instance.GenerateChoices(Actions + 3);
 		Debug.Log("Setup -> Input");
 		currnetState = GameState.Input;
 	}
@@ -114,32 +122,35 @@ public class Game : MonoBehaviour {
 		int currentPriority = 0;
 		while (!allResolved && currentPriority < 4)
 		{
+			Debug.Log(currentPriority);
 			allResolved = true;
 			for (int i = 0; i < actions.Count; i++)
 			{
+				Debug.Log(actions[i].name +" " + actions[i].priority);
 				if (actions[i].priority > currentPriority)
 				{
 					allResolved = false;
 					continue;
 				}
-				actions[i].Resolve(Choices.instance.IsChoiceSelected(i));
-				if (!actions[i].resolved)
+				if (!actions[i].IsResolved())
 				{
-					allResolved = false;
+					if (!actions[i].Resolve(Choices.instance.IsChoiceSelected(i)))
+					{
+						allResolved = false;
+					}
 				}
 			}
-
+			currentPriority++;
 		}
 		if (allResolved)
 		{
-			if (Food > 0)
+			Food -= DailyFoodCost;
+			if (Food < 0)
 			{
-				Food--;
+				Health += Food;
+				Food = 0;
 			}
-			else
-			{
-				Health--;
-			}
+
 			if (Health <= 0)
 			{
 				Debug.Log("Resolution -> GameOver");
@@ -147,6 +158,15 @@ public class Game : MonoBehaviour {
 			}
 			else
 			{
+				while (Health < DailyFoodCost)
+				{
+					DailyFoodCost--;
+					Actions--;
+				}
+				Choices.instance.badChance += 2;
+				Choices.instance.opportunityChance += 1;
+				Choices.instance.ideaChance += 2;
+				Choices.instance.resourceChance += 1;
 				Debug.Log("Resolution -> Setup");
 				currnetState = GameState.Setup;
 			}

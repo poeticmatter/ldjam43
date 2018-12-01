@@ -39,7 +39,7 @@ public class Choices : MonoBehaviour {
 		if (addSacrifice)
 		{
 			availableChoices.Add(Sacrifice);
-			Sacrifice.resolved = false;
+			Sacrifice.resolved++;
 		}
 		CreateAvailableChoices(count - availableChoices.Count);
 		AttachChoicesToUI();
@@ -56,6 +56,7 @@ public class Choices : MonoBehaviour {
 				scoped.gameObject.SetActive(true);
 				scoped.isOn = false;
 				scoped.GetComponentInChildren<Text>().text = availableChoices[i].title;
+				scoped.GetComponentInChildren<Description>().description = availableChoices[i].description;
 			}
 			else
 			{
@@ -67,25 +68,29 @@ public class Choices : MonoBehaviour {
 
 	private void CreateAvailableChoices(int count)
 	{
-		int chanceTotal = resourceChance + badChance + opportunityChance + ideaChance;
+		int chanceTotal = badChance + opportunityChance + ideaChance + resourceChance;
+		badEventCreated = opportunityCreated = ideaCreated = false;
 		for (int i = 0; i < count; i++)
 		{
 			int random = Random.Range(1, chanceTotal);
-			if (random <= resourceChance)
-			{
-				availableChoices.Add(GetChoice(resourceActions));
-			}
-			else if (random <= resourceChance + badChance)
+			if (random <= badChance && !badEventCreated)
 			{
 				availableChoices.Add(GetChoice(badEvents));
+				badEventCreated = true;
 			}
-			else if (random <= resourceChance + badChance + opportunityChance)
+			else if (random <= badChance + opportunityChance && !opportunityCreated)
 			{
 				availableChoices.Add(GetChoice(opportunities));
+				opportunityCreated = true;
 			}
-			else if (random <= resourceChance + badChance + opportunityChance + ideaChance)
+			else if (random <= badChance + opportunityChance + ideaChance && !ideaCreated)
 			{
-				availableChoices.Add(CreateIdea());
+				availableChoices.Add(GetChoice(ideas));
+				ideaCreated = true;
+			}
+			else
+			{
+				availableChoices.Add(GetChoice(resourceActions));
 			}
 		}
 	}
@@ -94,27 +99,49 @@ public class Choices : MonoBehaviour {
 	public Choice[] resourceActions;
 	public Choice[] badEvents;
 	public Choice[] opportunities;
+	public Choice[] ideas;
+	private bool badEventCreated = false;
+	private bool opportunityCreated = false;
+	private bool ideaCreated = false;
 
 	private Choice GetChoice(Choice [] fromChoices)
 	{
-		Choice ret = fromChoices[Random.Range(0, fromChoices.Length)];
-		ret.resolved = false;
-		return ret;
-	}
-
-
-	public Choice[] ideaPrefabs;
-
-	private Choice CreateIdea()
-	{
+		int chanceTotal = 0;
+		for (int i = 0; i < fromChoices.Length; i++)
+		{
+			if (fromChoices[i].isAvailable())
+			{
+				chanceTotal += fromChoices[i].showChance;
+			}
+		}
+		if (chanceTotal <=0)
+		{
+			Debug.Log("Falling back to resources");
+			return GetChoice(resourceActions);
+		}
+		int randomSelect = Random.Range(0, chanceTotal);
+		int selectIncrement = 0;
+		for (int i = 0; i < fromChoices.Length; i++)
+		{
+			if (fromChoices[i].isAvailable())
+			{
+				selectIncrement += fromChoices[i].showChance;
+				if (randomSelect < selectIncrement)
+				{
+					fromChoices[i].resolved++;
+					return fromChoices[i];
+				}
+			}
+		}
+		Debug.LogError("Could not create choice, this should not happen.");
 		return null;
 	}
+
 
 	public List<Toggle> toggleQueue;
 
 	public void ToggleValueChanged(Toggle change)
 	{
-		Debug.Log(change + " " + change.isOn);
 		if (change.isOn)
 		{
 			toggleQueue.Add(change);

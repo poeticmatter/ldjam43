@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grain : Choice {
+public class Axe : Choice {
 
 	public override bool Resolve(bool selected)
 	{
-		if (selected)
-		{
-			Game.instance.Food += 1;
-		}
 		return base.Resolve(selected);
+	}
+
+	public override bool isAvailable()
+	{
+		return false;
 	}
 }

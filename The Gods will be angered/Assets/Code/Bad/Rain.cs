@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Rain : Choice {
 
-	public override void Resolve(bool selected)
+	public override bool Resolve(bool selected)
 	{
-		base.Resolve(selected);
 		bool hasShelter = false;
+		Debug.Log("resolving Rain");
 		if (selected)
 		{
 			//Nothing, hide from rain.
@@ -18,8 +18,10 @@ public class Rain : Choice {
 		}
 		else
 		{
+			Debug.Log("No shelter");
 			Game.instance.Health--;
 		}
+		return base.Resolve(selected);
 	}
 
 }

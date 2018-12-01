@@ -13,19 +13,17 @@ public class Sacrifice : Choice {
 		sacrificeFoodButton.onClick.AddListener(SacrificeFood);
 	}
 
-	public override void Resolve(bool selected)
+	public override bool Resolve(bool selected)
 	{
-		if (selected)
+		if (selected && !IsResolved())
 		{
-			if (!resolved)
-			{
-				ShowModalWindow(true);
-			}
+			ShowModalWindow(true);
+			return false;
 		}
 		else
 		{
 			//The Gods are angered.
-			resolved = true;
+			return base.Resolve(selected);
 		}
 	}
 
@@ -37,8 +35,8 @@ public class Sacrifice : Choice {
 
 	private void SetResolved()
 	{
-		resolved = true;
 		ShowModalWindow(false);
+		base.Resolve(true);
 	}
 
 	private void ShowModalWindow(bool show)

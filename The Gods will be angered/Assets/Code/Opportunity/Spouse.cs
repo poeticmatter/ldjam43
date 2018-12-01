@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grain : Choice {
+public class Spouse : Choice {
 
 	public override bool Resolve(bool selected)
 	{
 		if (selected)
 		{
-			Game.instance.Food += 1;
+			Game.instance.Actions++;
+			Game.instance.DailyFoodCost++;
 		}
 		return base.Resolve(selected);
 	}
