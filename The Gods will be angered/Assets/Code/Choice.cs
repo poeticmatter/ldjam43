@@ -9,6 +9,7 @@ public class Choice : MonoBehaviour{
 	public int resolved = 1;
 	public int priority; //0 Resources, 1 oportunity, 2 Ideas, 3 Bad
 	public int showChance;
+	public bool available;
 	public virtual bool Resolve(bool selected)
 	{
 		resolved--;
@@ -22,7 +23,7 @@ public class Choice : MonoBehaviour{
 
 	public virtual bool isAvailable()
 	{
-		return true;
+		return available;
 	}
 
 	public bool IsResolved()

@@ -10,6 +10,8 @@ public class Spouse : Choice {
 		{
 			Game.instance.Actions++;
 			Game.instance.DailyFoodCost++;
+			Game.instance.Health += 3;
+			available = false;
 		}
 		return base.Resolve(selected);
 	}

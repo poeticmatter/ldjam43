@@ -33,7 +33,7 @@ public class Game : MonoBehaviour {
 	public int Food
 	{
 		get { return _food; }
-		set { _food = value; SetText(foodText, value); Debug.Log("foodchange"); }
+		set { _food = value; SetText(foodText, value); }
 	}
 
 	public int _clay;
@@ -57,7 +57,7 @@ public class Game : MonoBehaviour {
 	public int DailyFoodCost
 	{
 		get { return _dailyFoodCost; }
-		set { _dailyFoodCost = value; SetText(dailyFoodCostText, value); ; }
+		set { _dailyFoodCost = value; SetText(dailyFoodCostText, value); }
 	}
 
 	void Awake () {
@@ -72,6 +72,7 @@ public class Game : MonoBehaviour {
 		SetText(clayText, Clay);
 		SetText(actionsText, Actions);
 		SetText(healthText, Health);
+		SetText(dailyFoodCostText, DailyFoodCost);
 		restartButton.onClick.AddListener(Restart);
 	}
 
@@ -101,7 +102,7 @@ public class Game : MonoBehaviour {
 
 	private void Setup()
 	{
-		Choices.instance.GenerateChoices(Actions + 3);
+		Choices.instance.GenerateChoices(Actions + 2);
 		Debug.Log("Setup -> Input");
 		currnetState = GameState.Input;
 	}
