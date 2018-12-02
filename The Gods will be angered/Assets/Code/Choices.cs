@@ -56,12 +56,11 @@ public class Choices : MonoBehaviour {
 				scoped.gameObject.SetActive(true);
 				scoped.isOn = false;
 				scoped.GetComponentInChildren<Text>().text = availableChoices[i].title;
-				scoped.GetComponentInChildren<Description>().description = availableChoices[i].description;
+				scoped.GetComponent<Description>().description = availableChoices[i].description;
 			}
 			else
 			{
 				scoped.gameObject.SetActive(false);
-				scoped.onValueChanged.RemoveAllListeners();
 			}
 		}
 	}
@@ -150,6 +149,7 @@ public class Choices : MonoBehaviour {
 		{
 			toggleQueue.Remove(change);
 		}
+		Debug.Log(toggleQueue.Count);
 		if (toggleQueue.Count > Game.instance.Actions)
 		{
 			toggleQueue[0].isOn = false; //Triggers this method and will be removed by it.
