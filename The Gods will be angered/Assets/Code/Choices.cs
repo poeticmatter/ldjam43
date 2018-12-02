@@ -66,9 +66,15 @@ public class Choices : MonoBehaviour {
 
 	private void CreateAvailableChoices(int count, List<Choice> fromChoices, List<Choice> chosen)
 	{
+		bool allowIdea = true;
 		for (int i = 0; i < count; i++)
 		{
-			availableChoices.Add(GetChoice(fromChoices, chosen));
+			Choice temp = GetChoice(fromChoices, chosen, allowIdea);
+			if (temp.priority == 2)
+			{
+				allowIdea = false;
+			}
+			availableChoices.Add(temp);
 		}
 	}
 
@@ -78,27 +84,27 @@ public class Choices : MonoBehaviour {
 	public List<Choice> chosenGood;
 	public List<Choice> chosenBad;
 
-	private Choice GetChoice(List<Choice> fromChoices, List<Choice> chosen)
+	private Choice GetChoice(List<Choice> fromChoices, List<Choice> chosen, bool allowIdea)
 	{
 		int chanceTotal = 0;
 		for (int i = 0; i < fromChoices.Count; i++)
 		{
-			if (fromChoices[i].IsAvailable())
+			if (fromChoices[i].IsAvailable() && (allowIdea || fromChoices[i].priority != 2))
 			{
 				chanceTotal += fromChoices[i].showChance;
 			}
 		}
 		if (chanceTotal <=0)
 		{
-			Debug.Log("Falling back to good");
-			return GetChoice(good, chosenGood);
+			Debug.LogError("Falling back to good");
+			return GetChoice(good, chosenGood, allowIdea);
 		}
 		int randomSelect = Random.Range(0, chanceTotal);
 		int selectIncrement = 0;
 		for (int i = 0; i < fromChoices.Count; i++)
 		{
 			Choice temp = fromChoices[i];
-			if (temp.IsAvailable())
+			if (temp.IsAvailable() && (allowIdea || fromChoices[i].priority != 2))
 			{
 				selectIncrement += temp.showChance;
 				if (randomSelect < selectIncrement)

@@ -352,6 +352,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 57399182}
+--- !u!1 &115811948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 115811949}
+  - component: {fileID: 115811950}
+  m_Layer: 0
+  m_Name: Tribe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115811949
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115811948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 684188991}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &115811950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115811948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b03fea203e7e94a95bc96a9f800cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Tribe
+  resolved: 0
+  priority: 3
+  showChance: 4
+  available: 1
+  limited: 1
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
+  upgradeText: {fileID: 0}
+  _color: {r: 1, g: 0.4627451, b: 0.4627451, a: 1}
+  spear: {fileID: 1709173293}
+  art: {fileID: 299634746}
 --- !u!1 &130858286
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,14 +680,24 @@ MonoBehaviour:
   - {fileID: 542775576}
   - {fileID: 679417409}
   - {fileID: 270195265}
+  - {fileID: 554758758}
   - {fileID: 1266028775}
+  - {fileID: 1310524201}
   - {fileID: 1764971615}
   - {fileID: 999449361}
   - {fileID: 1709173293}
+  - {fileID: 2035458953}
+  - {fileID: 299634746}
+  - {fileID: 2109151851}
+  - {fileID: 2118187944}
   bad:
   - {fileID: 1531251607}
   - {fileID: 1025452461}
   - {fileID: 1708907878}
+  - {fileID: 939086775}
+  - {fileID: 1310776259}
+  - {fileID: 115811950}
+  - {fileID: 808536998}
   chosenGood: []
   chosenBad: []
   toggleQueue: []
@@ -964,7 +1026,7 @@ MonoBehaviour:
   title: Hunt
   resolved: 0
   priority: 1
-  showChance: 2
+  showChance: 4
   available: 1
   limited: 0
   upgradesPanel: {fileID: 0}
@@ -1412,7 +1474,7 @@ MonoBehaviour:
   title: Gather Food
   resolved: 0
   priority: 0
-  showChance: 3
+  showChance: 6
   available: 1
   limited: 0
   upgradesPanel: {fileID: 0}
@@ -1720,6 +1782,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 614787614}
+--- !u!1 &644418383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 644418384}
+  - component: {fileID: 644418385}
+  m_Layer: 0
+  m_Name: Medicine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644418384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644418383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1932162505}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644418385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644418383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de71edc3d3d99349a3cdcd10dd715a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Medicine
+  resolved: 0
+  priority: 2
+  showChance: 1
+  available: 1
+  limited: 1
+  upgradesPanel: {fileID: 253333903}
+  upgradeTextPrefab: {fileID: 114337664070156104, guid: 535d45001433c354a8153fd1d5e421be,
+    type: 2}
+  upgradeText: {fileID: 0}
+  _color: {r: 0.4627451, g: 0.70980394, b: 1, a: 1}
+  knife: {fileID: 2109151851}
 --- !u!1 &651582116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,7 +1953,7 @@ MonoBehaviour:
   title: Gather Wood
   resolved: 0
   priority: 0
-  showChance: 3
+  showChance: 6
   available: 1
   limited: 0
   upgradesPanel: {fileID: 0}
@@ -1877,6 +1991,9 @@ Transform:
   - {fileID: 1708907877}
   - {fileID: 939086774}
   - {fileID: 1310776258}
+  - {fileID: 115811949}
+  - {fileID: 808536997}
+  - {fileID: 804261051}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2117,6 +2234,108 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 716010391}
+--- !u!1 &804261050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 804261051}
+  - component: {fileID: 804261052}
+  m_Layer: 0
+  m_Name: Disease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &804261051
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804261050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 684188991}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &804261052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804261050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e9e445187e63042953c46479bb14c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Disease
+  resolved: 0
+  priority: 3
+  showChance: 1
+  available: 1
+  limited: 1
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
+  upgradeText: {fileID: 0}
+  _color: {r: 1, g: 0.4627451, b: 0.4627451, a: 1}
+  medicine: {fileID: 644418385}
+--- !u!1 &808536996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 808536997}
+  - component: {fileID: 808536998}
+  m_Layer: 0
+  m_Name: LostInTheWoods
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808536997
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808536996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 684188991}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808536998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808536996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9fd8ced7d83da4fb22e2a7152c34d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Lost
+  resolved: 0
+  priority: 3
+  showChance: 7
+  available: 1
+  limited: 1
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
+  upgradeText: {fileID: 0}
+  _color: {r: 1, g: 0.4627451, b: 0.4627451, a: 1}
+  shelter: {fileID: 999449361}
 --- !u!1 &824495736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,7 +3251,7 @@ MonoBehaviour:
   title: Sacrifices must be made
   resolved: 0
   priority: 3
-  showChance: 5
+  showChance: 10
   available: 1
   limited: 1
   upgradesPanel: {fileID: 0}
@@ -4179,8 +4398,8 @@ MonoBehaviour:
   resolved: 0
   priority: 1
   showChance: 3
-  available: 0
-  limited: 0
+  available: 1
+  limited: 1
   upgradesPanel: {fileID: 0}
   upgradeTextPrefab: {fileID: 0}
   upgradeText: {fileID: 0}
@@ -4230,8 +4449,8 @@ MonoBehaviour:
   resolved: 0
   priority: 3
   showChance: 3
-  available: 0
-  limited: 0
+  available: 1
+  limited: 1
   upgradesPanel: {fileID: 0}
   upgradeTextPrefab: {fileID: 0}
   upgradeText: {fileID: 0}
@@ -5332,6 +5551,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1639983743}
+--- !u!1 &1658459609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1658459610}
+  - component: {fileID: 1658459611}
+  m_Layer: 0
+  m_Name: Shrine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1658459610
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1658459609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1932162505}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1658459611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1658459609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96cd2186c763cd4fa2e69d86c58d279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Shrine
+  resolved: 0
+  priority: 2
+  showChance: 5
+  available: 1
+  limited: 1
+  upgradesPanel: {fileID: 253333903}
+  upgradeTextPrefab: {fileID: 114337664070156104, guid: 535d45001433c354a8153fd1d5e421be,
+    type: 2}
+  upgradeText: {fileID: 0}
+  _color: {r: 0.4627451, g: 0.70980394, b: 1, a: 1}
+  sacrifice: {fileID: 0}
 --- !u!1 &1703763206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6357,6 +6628,8 @@ Transform:
   - {fileID: 299634745}
   - {fileID: 2109151852}
   - {fileID: 2118187943}
+  - {fileID: 644418384}
+  - {fileID: 1658459610}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

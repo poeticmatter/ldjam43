@@ -15,6 +15,8 @@ public class Sacrifice : Choice {
 	private void Awake()
 	{
 		sacrificeFoodButton.onClick.AddListener(SacrificeFood);
+		sacrificeHealthButton.onClick.AddListener(SacrificeHealth);
+		sacrificeArtButton.onClick.AddListener(SacrificeArt);
 	}
 
 	public override bool Resolve(bool selected)

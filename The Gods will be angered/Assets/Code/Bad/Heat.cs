@@ -11,6 +11,11 @@ public class Heat : Choice {
 		{
 			//Nothing, rests.
 		}
+		else if (!waterskin.available && waterskin.Water > 1)
+		{
+			waterskin.Water--;
+			waterskin.Water--;
+		}
 		else if (!waterskin.available && waterskin.Water > 0)
 		{
 			waterskin.Water--;
@@ -27,9 +32,13 @@ public class Heat : Choice {
 
 	public override string GetDescription()
 	{
+		if (!waterskin.available && waterskin.Water > 1)
+		{
+			return "Your Waterskin keeps you refreshed throughout the day (-2 water if not chosen) or spend the day resting.";
+		}
 		if (!waterskin.available && waterskin.Water > 0)
 		{
-			return "You Waterskin keeps you refreshed throughout the day. (Chosen or not)";
+			return "Your Waterskin keeps you refreshed some of the day (15% chance -1 Health if not chosen) or spend the day resting.";
 		}
 		return "A harsh sun forces you lay down and rest, or risk suffering a heat stroke (%75 chance -1 Health if not chosen)";
 	}

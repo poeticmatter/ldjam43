@@ -35,9 +35,9 @@ public class WildAnimal : Choice
 	{
 		if (!spear.available)
 		{
-			return "Fight off the animal with your Spear (10% chance of -1 Health if chosen), or let it into your cqamp (lose 1-4 food).";
+			return "Fight off the animal with your Spear (10% chance of -1 Health if chosen), or let it into your camp (lose 1-4 food).";
 		}
-		return "Fight off the animal with a makeshift spear (25% chance of -1 Health if chosen), or let it into your cqamp (lose 1-4 food).";
+		return "Fight off the animal with a makeshift spear (25% chance of -1 Health if chosen), or let it into your camp (lose 1-4 food).";
 	}
 
 }
