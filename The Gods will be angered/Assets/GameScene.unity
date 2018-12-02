@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48858716}
   - component: {fileID: 48858717}
+  - component: {fileID: 48858718}
   m_Layer: 5
   m_Name: Toggle (5)
   m_TagString: Untagged
@@ -264,6 +265,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &48858718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48858715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &57399182
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,10 +960,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Hunt
-  description: 
+  description: +2 Food. 25% chance of -1 Health.
   resolved: 0
   priority: 0
-  showChance: 3
+  showChance: 2
   available: 1
 --- !u!1 &311857652
 GameObject:
@@ -1263,10 +1277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Gather Food
-  description: 
+  description: +1 Food.
   resolved: 0
   priority: 0
-  showChance: 2
+  showChance: 3
   available: 1
 --- !u!1 &551563526
 GameObject:
@@ -1523,7 +1537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Gather Wood
-  description: 
+  description: +1 Wood.
   resolved: 0
   priority: 0
   showChance: 4
@@ -1634,6 +1648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694655874}
   - component: {fileID: 694655875}
+  - component: {fileID: 694655876}
   m_Layer: 5
   m_Name: Toggle (3)
   m_TagString: Untagged
@@ -1706,6 +1721,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &694655876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694655873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &716010391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,7 +2616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Sacrifices must be made
-  description: 
+  description: Or the Gods will be angered.
   resolved: 0
   priority: 0
   showChance: 0
@@ -2849,6 +2877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150613772}
   - component: {fileID: 1150613773}
+  - component: {fileID: 1150613774}
   m_Layer: 5
   m_Name: Toggle (1)
   m_TagString: Untagged
@@ -2921,6 +2950,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1150613774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150613771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &1170859426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,6 +3771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1450793129}
   - component: {fileID: 1450793130}
+  - component: {fileID: 1450793131}
   m_Layer: 5
   m_Name: Toggle (4)
   m_TagString: Untagged
@@ -3801,6 +3844,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1450793131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450793128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &1479582624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528579404}
   - component: {fileID: 1528579405}
+  - component: {fileID: 1528579406}
   m_Layer: 5
   m_Name: Toggle (6)
   m_TagString: Untagged
@@ -4167,6 +4224,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1528579406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1528579403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &1531251605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809739914}
   - component: {fileID: 1809739915}
+  - component: {fileID: 1809739916}
   m_Layer: 5
   m_Name: Toggle (2)
   m_TagString: Untagged
@@ -4847,6 +4918,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1809739916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809739913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &1826009945
 GameObject:
   m_ObjectHideFlags: 0
@@ -5373,6 +5457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106035430}
   - component: {fileID: 2106035431}
+  - component: {fileID: 2106035432}
   m_Layer: 5
   m_Name: Toggle (7)
   m_TagString: Untagged
@@ -5445,6 +5530,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &2106035432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106035429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: 
 --- !u!1 &2129676101
 GameObject:
   m_ObjectHideFlags: 0
