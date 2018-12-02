@@ -12,4 +12,9 @@ public class Grain : Choice {
 		}
 		return base.Resolve(selected);
 	}
+
+	public override string GetDescription()
+	{
+		return "Forage for Food (+1 Food).";
+	}
 }

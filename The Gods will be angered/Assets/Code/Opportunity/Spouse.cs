@@ -15,4 +15,9 @@ public class Spouse : Choice {
 		}
 		return base.Resolve(selected);
 	}
+
+	public override string GetDescription()
+	{
+		return "You've met someone... (+1 action, +1 mouth to feed).";
+	}
 }

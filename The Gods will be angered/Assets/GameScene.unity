@@ -631,11 +631,11 @@ MonoBehaviour:
   resourceActions:
   - {fileID: 542775576}
   - {fileID: 679417409}
-  - {fileID: 270195265}
   badEvents:
   - {fileID: 1531251607}
   opportunities:
   - {fileID: 1266028775}
+  - {fileID: 270195265}
   ideas:
   - {fileID: 1764971615}
   toggleQueue: []
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 270195264}
   - component: {fileID: 270195265}
   m_Layer: 0
-  m_Name: Meat
+  m_Name: Hunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -941,12 +941,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 270195263}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000015258789, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1769899230}
-  m_RootOrder: 2
+  m_Father: {fileID: 311857653}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &270195265
 MonoBehaviour:
@@ -960,10 +960,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Hunt
-  description: +2 Food. 25% chance of -1 Health.
   resolved: 0
-  priority: 0
-  showChance: 2
+  priority: 1
+  showChance: 3
   available: 1
 --- !u!1 &311857652
 GameObject:
@@ -991,6 +990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1266028774}
+  - {fileID: 270195264}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1277,7 +1277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Gather Food
-  description: +1 Food.
   resolved: 0
   priority: 0
   showChance: 3
@@ -1537,11 +1536,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Gather Wood
-  description: +1 Wood.
   resolved: 0
   priority: 0
   showChance: 4
   available: 1
+  axe: {fileID: 1764971615}
 --- !u!1 &684188990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,7 +2615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Sacrifices must be made
-  description: Or the Gods will be angered.
   resolved: 0
   priority: 0
   showChance: 0
@@ -3450,9 +3448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Spouse
-  description: You've met someone. +1 Action, +1 mouth to feed.
   resolved: 0
-  priority: 0
+  priority: 1
   showChance: 1
   available: 1
 --- !u!1 &1268840323
@@ -4278,8 +4275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Raining
-  description: 'Selected: Hide from rain (No ill effect). Otherwise: If you have shelter,
-    -1 Wood. Without shelter, -1 Health.'
   resolved: 0
   priority: 3
   showChance: 1
@@ -4726,11 +4721,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Build an Axe
-  description: +1 Wood when gathering.
   resolved: 0
-  priority: 0
-  showChance: 0
-  available: 0
+  priority: 2
+  showChance: 1
+  available: 1
 --- !u!1 &1769899229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4758,7 +4752,6 @@ Transform:
   m_Children:
   - {fileID: 542775575}
   - {fileID: 679417408}
-  - {fileID: 270195264}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -13,7 +13,26 @@ public class Meat : Choice {
 			{
 				Game.instance.Health--;
 			}
+			if (Random.value < 0.25f)
+			{
+				Game.instance.Wood--;
+				if (Game.instance.Wood <0)
+				{
+					Debug.LogError("Negative wood");
+					Game.instance.Wood = 0; //Dirty, but will prevent awkwardness
+				}
+			}
 		}
 		return base.Resolve(selected);
+	}
+
+	public override bool isAvailable()
+	{
+		return base.isAvailable() && Game.instance.Wood >= 1;
+	}
+
+	public override string GetDescription()
+	{
+		return "Hunt with a wooden spear (+2 Food. %25 chance -1 Health. %25 chance -1 Wood.";
 	}
 }

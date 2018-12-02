@@ -123,11 +123,9 @@ public class Game : MonoBehaviour {
 		int currentPriority = 0;
 		while (!allResolved && currentPriority < 4)
 		{
-			Debug.Log(currentPriority);
 			allResolved = true;
 			for (int i = 0; i < actions.Count; i++)
 			{
-				Debug.Log(actions[i].name +" " + actions[i].priority);
 				if (actions[i].priority > currentPriority)
 				{
 					allResolved = false;

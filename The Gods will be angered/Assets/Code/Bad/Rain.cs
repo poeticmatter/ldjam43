@@ -7,7 +7,6 @@ public class Rain : Choice {
 	public override bool Resolve(bool selected)
 	{
 		bool hasShelter = false;
-		Debug.Log("resolving Rain");
 		if (selected)
 		{
 			//Nothing, hide from rain.
@@ -18,10 +17,17 @@ public class Rain : Choice {
 		}
 		else
 		{
-			Debug.Log("No shelter");
-			Game.instance.Health--;
+			if (Random.value < 0.5f)
+			{
+				Game.instance.Health--;
+			}
 		}
 		return base.Resolve(selected);
+	}
+
+	public override string GetDescription()
+	{
+		return "Hide from the rain or brave the weather (50% chance of -1 Health)";
 	}
 
 }

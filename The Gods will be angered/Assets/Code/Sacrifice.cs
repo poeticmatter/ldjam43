@@ -48,4 +48,9 @@ public class Sacrifice : Choice {
 			sacrificeFoodButton.interactable = Game.instance.Food > 0;
 		}
 	}
+
+	public override string GetDescription()
+	{
+		return "Or the Gods will be angered.";
+	}
 }
