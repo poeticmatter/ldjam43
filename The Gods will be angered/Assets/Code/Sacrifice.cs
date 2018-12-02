@@ -13,6 +13,7 @@ public class Sacrifice : Choice {
 	public AudioSource[] godsAngeredSound;
 
 	public Art art;
+	public GodsWillBeAngered gods;
 	
 	private void Awake()
 	{
@@ -31,6 +32,7 @@ public class Sacrifice : Choice {
 		else
 		{
 			PlayGodsAngered();
+			gods.ShowGodsMessage();
 			return base.Resolve(selected);
 		}
 	}

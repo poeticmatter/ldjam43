@@ -141,7 +141,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1703763207}
-  - {fileID: 1221894925}
   m_Father: {fileID: 1336375446}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -288,6 +287,7 @@ GameObject:
   - component: {fileID: 57399183}
   - component: {fileID: 57399185}
   - component: {fileID: 57399184}
+  - component: {fileID: 57399186}
   m_Layer: 5
   m_Name: Wood
   m_TagString: Untagged
@@ -352,6 +352,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 57399182}
+--- !u!114 &57399186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57399182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: Amount of wood you have. Useful for building things.
 --- !u!1 &115811948
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +831,7 @@ MonoBehaviour:
   turnText: {fileID: 1006024060}
   turnBackground: {fileID: 1221894927}
   allActionsUsedColor: {r: 0.27249134, g: 0.88235295, b: 0.45334685, a: 1}
-  actionsRemainingColor: {r: 0.8320964, g: 0.86764705, b: 0.22329153, a: 1}
+  actionsRemainingColor: {r: 0.9493614, g: 0.97794116, b: 0.41706312, a: 1}
 --- !u!114 &204539866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +993,7 @@ GameObject:
   - component: {fileID: 230481964}
   - component: {fileID: 230481966}
   - component: {fileID: 230481965}
+  - component: {fileID: 230481967}
   m_Layer: 5
   m_Name: Food
   m_TagString: Untagged
@@ -1044,6 +1058,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230481963}
+--- !u!114 &230481967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 230481963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: Available food. You will have to consume food every turn based on the
+    number of mouths you have to feed.
 --- !u!1 &245475991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1673,99 @@ Transform:
   m_Father: {fileID: 954277863}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &436414258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 436414259}
+  - component: {fileID: 436414263}
+  - component: {fileID: 436414262}
+  - component: {fileID: 436414260}
+  m_Layer: 5
+  m_Name: GodsText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &436414259
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436414258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 763070652}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &436414260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436414258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dcf9624bde53046bd3bd283ec8d948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - The Gods will unleash their wrath.
+  - The Gods will be furious.
+  - The Gods will punsish the greedy.
+  - The Gods have been angered
+  - The Gods must be appeased
+  textOb: {fileID: 436414262}
+--- !u!114 &436414262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436414258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.78544325, g: 0.13321798, b: 0.8235294, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 64
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 64
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: The Gods will unleash their wrath.
+--- !u!222 &436414263
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436414258}
 --- !u!1 &448598621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,14 +2194,14 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594637911}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 850090966}
   - {fileID: 1170859427}
   m_Father: {fileID: 1336375446}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2685,6 +2806,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 716010391}
+--- !u!1 &763070651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 763070652}
+  - component: {fileID: 763070654}
+  - component: {fileID: 763070653}
+  m_Layer: 5
+  m_Name: GodsPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &763070652
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763070651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 436414259}
+  m_Father: {fileID: 1336375446}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.2, y: 0}
+  m_AnchorMax: {x: 0.8, y: 0.6958168}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &763070653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763070651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &763070654
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763070651}
 --- !u!1 &804261050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,6 +4172,7 @@ MonoBehaviour:
   - {fileID: 331123860}
   - {fileID: 1344999984}
   art: {fileID: 299634746}
+  gods: {fileID: 436414260}
 --- !u!4 &1025452462
 Transform:
   m_ObjectHideFlags: 0
@@ -4534,10 +4725,10 @@ RectTransform:
   m_Father: {fileID: 1336375446}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.2, y: 0.3}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.2, y: 0.6958168}
+  m_AnchorMax: {x: 0.8143838, y: 1}
+  m_AnchoredPosition: {x: -6.034, y: 0}
+  m_SizeDelta: {x: -12.068, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198350810
 MonoBehaviour:
@@ -4695,6 +4886,7 @@ GameObject:
   - component: {fileID: 1221894927}
   - component: {fileID: 1221894926}
   - component: {fileID: 1221894929}
+  - component: {fileID: 1221894930}
   m_Layer: 5
   m_Name: Turn
   m_TagString: Untagged
@@ -4713,13 +4905,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1006024059}
-  m_Father: {fileID: 25057534}
-  m_RootOrder: 1
+  m_Father: {fileID: 1336375446}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.35}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: -8, y: -6}
+  m_AnchorMax: {x: 0.2, y: 0.3}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_SizeDelta: {x: -0.000030517578, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221894926
 MonoBehaviour:
@@ -4817,6 +5009,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c3bd7c6d58da84c88484d18bf0d9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1221894930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221894924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: Pass the turn. You will consume food equal to the number of mouths
+    you need to feed. Missing food will cause health loss.
 --- !u!1 &1226093158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,6 +5107,7 @@ GameObject:
   - component: {fileID: 1229175000}
   - component: {fileID: 1229175002}
   - component: {fileID: 1229175001}
+  - component: {fileID: 1229175003}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -4965,6 +5172,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1229174999}
+--- !u!114 &1229175003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229174999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: When your health reaches zero, you die. If you have less health than
+    mouths to feed you will lose actions.
 --- !u!1 &1266028773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5276,8 +5497,10 @@ RectTransform:
   m_Children:
   - {fileID: 1520598352}
   - {fileID: 25057534}
-  - {fileID: 594637912}
+  - {fileID: 1221894925}
   - {fileID: 1198350809}
+  - {fileID: 763070652}
+  - {fileID: 594637912}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5753,6 +5976,7 @@ GameObject:
   - component: {fileID: 1481058701}
   - component: {fileID: 1481058703}
   - component: {fileID: 1481058702}
+  - component: {fileID: 1481058704}
   m_Layer: 5
   m_Name: Clay
   m_TagString: Untagged
@@ -5819,6 +6043,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1481058700}
+--- !u!114 &1481058704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481058700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: Amount of clay you have.
 --- !u!1 &1519839597
 GameObject:
   m_ObjectHideFlags: 0
@@ -6580,7 +6817,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1703763206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6590,10 +6827,10 @@ RectTransform:
   m_Father: {fileID: 25057534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.35}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1}
-  m_SizeDelta: {x: -8, y: -6}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703763208
 MonoBehaviour:
@@ -7069,6 +7306,7 @@ GameObject:
   - component: {fileID: 1826009946}
   - component: {fileID: 1826009948}
   - component: {fileID: 1826009947}
+  - component: {fileID: 1826009949}
   m_Layer: 5
   m_Name: Actions
   m_TagString: Untagged
@@ -7133,6 +7371,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1826009945}
+--- !u!114 &1826009949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1826009945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: Number of actions you may select on the left.
 --- !u!1 &1859819615
 GameObject:
   m_ObjectHideFlags: 0
@@ -7489,6 +7740,7 @@ GameObject:
   - component: {fileID: 1927099417}
   - component: {fileID: 1927099419}
   - component: {fileID: 1927099418}
+  - component: {fileID: 1927099420}
   m_Layer: 5
   m_Name: MouthsToFeed
   m_TagString: Untagged
@@ -7553,6 +7805,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927099416}
+--- !u!114 &1927099420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1927099416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caef365db7a1784dbcfc4ed905e9a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1004671152}
+  description: Amount of food that wioll be consumed each turn. And also number of
+    people you have.
 --- !u!1 &1932162504
 GameObject:
   m_ObjectHideFlags: 0
