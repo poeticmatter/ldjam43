@@ -26,6 +26,7 @@ public class Choices : MonoBehaviour {
 				ToggleValueChanged(scoped);
 			});
 		}
+		turnText.text = "Pass Turn\nActions remaining: " + Game.instance.Actions;
 	}
 
 	public void GenerateChoices(int count, int turn)
@@ -56,6 +57,7 @@ public class Choices : MonoBehaviour {
 				scoped.GetComponentInChildren<Text>().text = availableChoices[i].title;
 				scoped.GetComponent<Description>().description = availableChoices[i].GetDescription();
 				scoped.GetComponentInChildren<Image>().color = availableChoices[i]._color;
+				availableChoices[i].PlayOnShowSound();
 			}
 			else
 			{
@@ -126,6 +128,10 @@ public class Choices : MonoBehaviour {
 
 
 	public List<Toggle> toggleQueue;
+	public Text turnText;
+	public Image turnBackground;
+	public Color allActionsUsedColor;
+	public Color actionsRemainingColor;
 
 	public void ToggleValueChanged(Toggle change)
 	{
@@ -141,6 +147,10 @@ public class Choices : MonoBehaviour {
 		{
 			toggleQueue[0].isOn = false; //Triggers this method and will be removed by it.
 		}
+		int actionsRemaining = Game.instance.Actions - toggleQueue.Count;
+		turnText.text = "Pass Turn\nActions remaining: " + actionsRemaining;
+		turnBackground.color = actionsRemaining > 0 ? actionsRemainingColor : allActionsUsedColor;
+
 	}
 
 	public bool IsChoiceSelected(int choiceIndex)

@@ -10,7 +10,7 @@ public class Waterskin : Choice {
 	public int Water
 	{
 		get { return _water; }
-		set { _water = value; if (_water > 3) _water = 3;  upgradeText.text = title + " ("+_water+")"; }
+		set { _water = value; if (_water > 3) _water = 3;  upgradeText.text = title + " ("+_water+" water)"; }
 	}
 
 	public override bool Resolve(bool selected)
@@ -18,6 +18,7 @@ public class Waterskin : Choice {
 		if (selected)
 		{
 			AddUpgrade();
+			Water = 0;
 		}
 		return base.Resolve(selected);
 	}

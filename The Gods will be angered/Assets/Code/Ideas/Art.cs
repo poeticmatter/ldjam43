@@ -21,6 +21,6 @@ public class Art : Choice {
 
 	public override string GetDescription()
 	{
-		return "An idol in the Gods' image will surely sooth their anger.";
+		return "An idol in the Gods' image will surely soothe their anger.";
 	}
 }

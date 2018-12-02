@@ -16,6 +16,8 @@ public class Choice : MonoBehaviour{
 
 	public Text upgradeText = null;
 
+	public AudioSource [] onShowSound;
+
 	public Color _color = Color.white;
 	public virtual bool Resolve(bool selected)
 	{
@@ -58,6 +60,14 @@ public class Choice : MonoBehaviour{
 		{
 			Destroy(upgradeText.gameObject);
 			upgradeText = null;
+		}
+	}
+
+	public void PlayOnShowSound()
+	{
+		if (onShowSound != null && onShowSound.Length > 0)
+		{
+			onShowSound[Random.Range(0,onShowSound.Length)].Play();
 		}
 	}
 }

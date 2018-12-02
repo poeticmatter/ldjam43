@@ -54,15 +54,15 @@ public class Cold : Choice
 		{
 			if (Game.instance.Wood > 0)
 			{
-				return "Build a fire and stay in your shelter (-1 Wood for fire) or brave the weather (%50 chance of -1 health).";
+				return "Freezing night.\nBuild a fire and stay in your shelter (-1 Wood for fire) or brave the weather (%50 chance of -1 health).";
 			}
-			return "Stay in your shelter (%25 chance of -1 Health) or brave the weather (%50 chance of -1 health).";
+			return "Freezing night.\nStay in your shelter (%25 chance of -1 Health) or brave the weather (%50 chance of -1 health).";
 		}
 		if (Game.instance.Wood > 0)
 		{
-			return "Find a Cave and build a fire (-1 Wood for fire. 10% chance of -1 Health) or brave the weather (%50 chance of -1 health).";
+			return "Freezing night.\nFind a Cave and build a fire (-1 Wood for fire. 10% chance of -1 Health) or brave the weather (%50 chance of -1 health).";
 		}
-		return "Find a cave to hide in (%40 chance of -1 Health) or brave the weather (%50 chance of -1 health).";
+		return "Freezing night.\nFind a cave to hide in (%40 chance of -1 Health) or brave the weather (%50 chance of -1 health).";
 	}
 
 }

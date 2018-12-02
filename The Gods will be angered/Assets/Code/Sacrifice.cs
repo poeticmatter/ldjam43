@@ -10,6 +10,8 @@ public class Sacrifice : Choice {
 	public Button sacrificeHealthButton;
 	public Button sacrificeArtButton;
 
+	public AudioSource[] godsAngeredSound;
+
 	public Art art;
 	
 	private void Awake()
@@ -28,7 +30,7 @@ public class Sacrifice : Choice {
 		}
 		else
 		{
-			//The Gods are angered.
+			PlayGodsAngered();
 			return base.Resolve(selected);
 		}
 	}
@@ -71,5 +73,13 @@ public class Sacrifice : Choice {
 	public override string GetDescription()
 	{
 		return "Or the Gods will be angered.";
+	}
+
+	public void PlayGodsAngered()
+	{
+		if (godsAngeredSound != null && godsAngeredSound.Length > 0)
+		{
+			godsAngeredSound[Random.Range(0, godsAngeredSound.Length)].Play();
+		}
 	}
 }

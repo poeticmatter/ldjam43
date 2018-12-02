@@ -22,6 +22,6 @@ public class Basket : Choice
 
 	public override string GetDescription()
 	{
-		return "Weave a Basket using a Knife and twine to help ghather food (50% chance of +1 food when gathering).\nCost: 2 wood.";
+		return "Weave a Basket using a Knife and twine to help gather food (50% chance of +1 food when gathering).\nCost: 2 wood.";
 	}
 }
