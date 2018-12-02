@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rain : Choice {
+public class Heat : Choice {
 
 	public override bool Resolve(bool selected)
 	{
-		bool hasShelter = false;
+		bool hasWater = false;
 		if (selected)
 		{
-			//Nothing, hide from rain.
+			//Nothing, rests.
 		}
-		else if (hasShelter) 
+		else if (hasWater)
 		{
-			Game.instance.Wood--; //For repairs
+			//water--;
 		}
 		else
 		{
-			if (Random.value < 0.5f)
+			if (Random.value < 0.75f)
 			{
 				Game.instance.Health--;
 			}
@@ -27,7 +27,6 @@ public class Rain : Choice {
 
 	public override string GetDescription()
 	{
-		return "Find a cave to hide in, or brave the weather (50% chance of -1 Health if not chosen)";
+		return "A harsh sun forces you to go to the lake to cool, or risk suffering a heat stroke (%75 chance -1 Health if not chosen)";
 	}
-
 }

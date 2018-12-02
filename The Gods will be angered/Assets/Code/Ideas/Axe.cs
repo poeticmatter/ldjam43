@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Axe : Choice {
 
@@ -10,13 +11,15 @@ public class Axe : Choice {
 		{
 			Game.instance.Wood -= 2;
 			available = false;
+			Text upgradeText = AddUpgradeText();
+			upgradeText.text = title;
 		}
 		return base.Resolve(selected);
 	}
 
-	public override bool isAvailable()
+	public override bool IsAvailable()
 	{
-		return base.isAvailable() && Game.instance.Wood >= 2;
+		return base.IsAvailable() && Game.instance.Wood >= 2;
 	}
 
 	public override string GetDescription()

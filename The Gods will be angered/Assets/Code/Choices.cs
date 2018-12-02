@@ -4,13 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Choices : MonoBehaviour {
-	public bool addSacrifice;
-	public int resourceChance = 50;
+	public int goodChance = 50;
 	public int badChance = 0;
-	public int opportunityChance = 0;
-	public int ideaChance = 0;
-
-	public Choice Sacrifice;
 
 	public List<Choice> availableChoices;
 	public Toggle[] toggles;
@@ -33,15 +28,18 @@ public class Choices : MonoBehaviour {
 		}
 	}
 
-	public void GenerateChoices(int count)
+	public void GenerateChoices(int count, int turn)
 	{
 		availableChoices.Clear();
-		if (addSacrifice)
-		{
-			availableChoices.Add(Sacrifice);
-			Sacrifice.resolved++;
-		}
-		CreateAvailableChoices(count - availableChoices.Count);
+
+		bad.AddRange(chosenBad);
+		chosenBad.Clear();
+		good.AddRange(chosenGood);
+		chosenGood.Clear();
+
+		int badCount = (int) Mathf.Log(turn);
+		CreateAvailableChoices(badCount, bad, chosenBad);
+		CreateAvailableChoices(count - badCount, good, chosenGood);
 		AttachChoicesToUI();
 		
 	}
@@ -65,70 +63,52 @@ public class Choices : MonoBehaviour {
 		}
 	}
 
-	private void CreateAvailableChoices(int count)
+	private void CreateAvailableChoices(int count, List<Choice> fromChoices, List<Choice> chosen)
 	{
-		int chanceTotal = badChance + opportunityChance + ideaChance + resourceChance;
-		badEventCreated = opportunityCreated = ideaCreated = false;
 		for (int i = 0; i < count; i++)
 		{
-			int random = Random.Range(1, chanceTotal);
-			if (random <= badChance && !badEventCreated)
-			{
-				availableChoices.Add(GetChoice(badEvents));
-				badEventCreated = true;
-			}
-			else if (random <= badChance + opportunityChance && !opportunityCreated)
-			{
-				availableChoices.Add(GetChoice(opportunities));
-				opportunityCreated = true;
-			}
-			else if (random <= badChance + opportunityChance + ideaChance && !ideaCreated)
-			{
-				availableChoices.Add(GetChoice(ideas));
-				ideaCreated = true;
-			}
-			else
-			{
-				availableChoices.Add(GetChoice(resourceActions));
-			}
+			availableChoices.Add(GetChoice(fromChoices, chosen));
 		}
 	}
 
 
-	public Choice[] resourceActions;
-	public Choice[] badEvents;
-	public Choice[] opportunities;
-	public Choice[] ideas;
-	private bool badEventCreated = false;
-	private bool opportunityCreated = false;
-	private bool ideaCreated = false;
+	public List<Choice> good;
+	public List<Choice> bad;
+	public List<Choice> chosenGood;
+	public List<Choice> chosenBad;
 
-	private Choice GetChoice(Choice [] fromChoices)
+	private Choice GetChoice(List<Choice> fromChoices, List<Choice> chosen)
 	{
 		int chanceTotal = 0;
-		for (int i = 0; i < fromChoices.Length; i++)
+		for (int i = 0; i < fromChoices.Count; i++)
 		{
-			if (fromChoices[i].isAvailable())
+			if (fromChoices[i].IsAvailable())
 			{
 				chanceTotal += fromChoices[i].showChance;
 			}
 		}
 		if (chanceTotal <=0)
 		{
-			Debug.Log("Falling back to resources");
-			return GetChoice(resourceActions);
+			Debug.Log("Falling back to good");
+			return GetChoice(good, chosenGood);
 		}
 		int randomSelect = Random.Range(0, chanceTotal);
 		int selectIncrement = 0;
-		for (int i = 0; i < fromChoices.Length; i++)
+		for (int i = 0; i < fromChoices.Count; i++)
 		{
-			if (fromChoices[i].isAvailable())
+			Choice temp = fromChoices[i];
+			if (temp.IsAvailable())
 			{
-				selectIncrement += fromChoices[i].showChance;
+				selectIncrement += temp.showChance;
 				if (randomSelect < selectIncrement)
 				{
-					fromChoices[i].resolved++;
-					return fromChoices[i];
+					temp.resolved++;
+					if (temp.limited)
+					{
+						chosen.Add(temp);
+						fromChoices.RemoveAt(i);
+					}
+					return temp;
 				}
 			}
 		}

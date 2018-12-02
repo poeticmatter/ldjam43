@@ -26,13 +26,13 @@ public class Meat : Choice {
 		return base.Resolve(selected);
 	}
 
-	public override bool isAvailable()
+	public override bool IsAvailable()
 	{
-		return base.isAvailable() && Game.instance.Wood >= 1;
+		return base.IsAvailable() && Game.instance.Wood >= 1;
 	}
 
 	public override string GetDescription()
 	{
-		return "Hunt with a wooden spear (+2 Food. %25 chance -1 Health. %25 chance -1 Wood.";
+		return "Go hunting with a makeshift wooden spear (+2 Food. %25 chance -1 Health. %25 chance -1 Wood.";
 	}
 }

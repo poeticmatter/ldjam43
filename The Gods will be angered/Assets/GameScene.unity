@@ -613,12 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db12c9994b150f544b3695e9c5af74dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addSacrifice: 1
-  resourceChance: 50
+  goodChance: 50
   badChance: 0
-  opportunityChance: 0
-  ideaChance: 0
-  Sacrifice: {fileID: 1025452461}
   availableChoices: []
   toggles:
   - {fileID: 1150613773}
@@ -628,16 +624,17 @@ MonoBehaviour:
   - {fileID: 48858717}
   - {fileID: 1528579405}
   - {fileID: 2106035431}
-  resourceActions:
+  good:
   - {fileID: 542775576}
   - {fileID: 679417409}
-  badEvents:
-  - {fileID: 1531251607}
-  opportunities:
-  - {fileID: 1266028775}
   - {fileID: 270195265}
-  ideas:
+  - {fileID: 1266028775}
   - {fileID: 1764971615}
+  bad:
+  - {fileID: 1531251607}
+  - {fileID: 1025452461}
+  chosenGood: []
+  chosenBad: []
   toggleQueue: []
 --- !u!114 &204539866
 MonoBehaviour:
@@ -651,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currnetState: 0
+  turn: 1
   _wood: 0
   woodText: {fileID: 841607236}
   _health: 4
@@ -665,6 +663,7 @@ MonoBehaviour:
   dailyFoodCostText: {fileID: 143880912}
   modalWindow: {fileID: 594637911}
   gameOverPanel: {fileID: 1170859426}
+  gameOverText: {fileID: 1907595219}
   restartButton: {fileID: 1479582626}
 --- !u!4 &204539867
 Transform:
@@ -839,7 +838,7 @@ GameObject:
   - component: {fileID: 253333905}
   - component: {fileID: 253333904}
   m_Layer: 5
-  m_Name: Upgrades
+  m_Name: UpgradesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,14 +875,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 5
+    m_Right: 5
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
 --- !u!114 &253333905
@@ -962,8 +961,11 @@ MonoBehaviour:
   title: Hunt
   resolved: 0
   priority: 1
-  showChance: 3
+  showChance: 10
   available: 1
+  limited: 0
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
 --- !u!1 &311857652
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +994,7 @@ Transform:
   - {fileID: 1266028774}
   - {fileID: 270195264}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &409783968
 GameObject:
@@ -1279,8 +1281,11 @@ MonoBehaviour:
   title: Gather Food
   resolved: 0
   priority: 0
-  showChance: 3
+  showChance: 15
   available: 1
+  limited: 0
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
 --- !u!1 &551563526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,8 +1543,11 @@ MonoBehaviour:
   title: Gather Wood
   resolved: 0
   priority: 0
-  showChance: 4
+  showChance: 15
   available: 1
+  limited: 0
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
   axe: {fileID: 1764971615}
 --- !u!1 &684188990
 GameObject:
@@ -1567,8 +1575,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1531251606}
+  - {fileID: 1025452462}
+  - {fileID: 1708907877}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &685503036
 GameObject:
@@ -2616,9 +2626,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Sacrifices must be made
   resolved: 0
-  priority: 0
-  showChance: 0
-  available: 0
+  priority: 3
+  showChance: 50
+  available: 1
+  limited: 1
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
   modalWindow: {fileID: 594637911}
   sacrificePanel: {fileID: 850090965}
   sacrificeFoodButton: {fileID: 1174164619}
@@ -2628,12 +2641,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1025452460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.5541, y: 117.54921, z: -6.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -471.51367, y: -131.47, z: -3.625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 684188991}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051187163
 GameObject:
@@ -2739,10 +2752,10 @@ RectTransform:
   m_Father: {fileID: 1170859427}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.7}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000011444001, y: 0.000015258789}
-  m_SizeDelta: {x: 0, y: -0.000034332}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053571597
 MonoBehaviour:
@@ -2990,11 +3003,12 @@ RectTransform:
   m_Children:
   - {fileID: 1479582625}
   - {fileID: 1053571596}
+  - {fileID: 1907595218}
   m_Father: {fileID: 594637912}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4, y: 0.4}
-  m_AnchorMax: {x: 0.6, y: 0.6}
+  m_AnchorMin: {x: 0.3, y: 0.35}
+  m_AnchorMax: {x: 0.7, y: 0.65}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3450,8 +3464,11 @@ MonoBehaviour:
   title: Spouse
   resolved: 0
   priority: 1
-  showChance: 1
+  showChance: 2
   available: 1
+  limited: 1
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
 --- !u!1 &1268840323
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,7 +3627,7 @@ RectTransform:
   - {fileID: 594637912}
   - {fileID: 1198350809}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3886,10 +3903,10 @@ RectTransform:
   m_Father: {fileID: 1170859427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: -19}
+  m_AnchorMin: {x: 0.2, y: 0}
+  m_AnchorMax: {x: 0.8, y: 0.19932142}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479582626
 MonoBehaviour:
@@ -4277,8 +4294,11 @@ MonoBehaviour:
   title: Raining
   resolved: 0
   priority: 3
-  showChance: 1
+  showChance: 5
   available: 1
+  limited: 1
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
 --- !u!1 &1549176880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4606,6 +4626,54 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1703763206}
+--- !u!1 &1708907876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1708907877}
+  - component: {fileID: 1708907878}
+  m_Layer: 0
+  m_Name: Heat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1708907877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1708907876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 684188991}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708907878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1708907876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07bfe325fe48eb24f9609e8fef17b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Heat
+  resolved: 1
+  priority: 3
+  showChance: 3
+  available: 0
+  limited: 0
+  upgradesPanel: {fileID: 0}
+  upgradeTextPrefab: {fileID: 0}
 --- !u!1 &1711395230
 GameObject:
   m_ObjectHideFlags: 0
@@ -4617,7 +4685,7 @@ GameObject:
   - component: {fileID: 1711395233}
   - component: {fileID: 1711395232}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UpgradesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4720,11 +4788,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921bddadd26702e46aad7fac1eba1374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Build an Axe
+  title: Axe
   resolved: 0
   priority: 2
   showChance: 1
   available: 1
+  limited: 1
+  upgradesPanel: {fileID: 253333903}
+  upgradeTextPrefab: {fileID: 114337664070156104, guid: 535d45001433c354a8153fd1d5e421be,
+    type: 2}
 --- !u!1 &1769899229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,7 +4825,7 @@ Transform:
   - {fileID: 542775575}
   - {fileID: 679417408}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808231206
 GameObject:
@@ -5200,8 +5272,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1907595217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1907595218}
+  - component: {fileID: 1907595220}
+  - component: {fileID: 1907595219}
+  m_Layer: 5
+  m_Name: Survived
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1907595218
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907595217}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1170859427}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.3}
+  m_AnchorMax: {x: 1, y: 0.7}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1907595219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907595217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: You survived X turns.
+--- !u!222 &1907595220
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907595217}
 --- !u!1 &1920410467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,7 +5517,7 @@ Transform:
   m_Children:
   - {fileID: 1764971614}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021987592
 GameObject:

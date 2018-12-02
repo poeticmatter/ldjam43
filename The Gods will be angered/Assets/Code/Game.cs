@@ -10,6 +10,7 @@ public class Game : MonoBehaviour {
 	public GameState currnetState;
 
 	public static Game instance;
+	public int turn;
 
 	// Resources
 	public int _wood;
@@ -102,7 +103,7 @@ public class Game : MonoBehaviour {
 
 	private void Setup()
 	{
-		Choices.instance.GenerateChoices(Actions + 2);
+		Choices.instance.GenerateChoices(Actions + 2, turn);
 		Debug.Log("Setup -> Input");
 		currnetState = GameState.Input;
 	}
@@ -162,10 +163,8 @@ public class Game : MonoBehaviour {
 					DailyFoodCost--;
 					Actions--;
 				}
-				Choices.instance.badChance += 2;
-				Choices.instance.opportunityChance += 1;
-				Choices.instance.ideaChance += 2;
-				Choices.instance.resourceChance += 1;
+				Choices.instance.badChance += 1;
+				turn++;
 				Debug.Log("Resolution -> Setup");
 				currnetState = GameState.Setup;
 			}
@@ -181,12 +180,14 @@ public class Game : MonoBehaviour {
 
 	public GameObject modalWindow;
 	public GameObject gameOverPanel;
+	public Text gameOverText;
 	public Button restartButton;
 
 	private void GameOver()
 	{
 		modalWindow.SetActive(true);
 		gameOverPanel.SetActive(true);
+		gameOverText.text = "You survived " + turn + " turns.";
 	}
 
 	public void Restart()

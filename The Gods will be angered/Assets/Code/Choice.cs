@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Choice : MonoBehaviour{
 
@@ -9,6 +10,9 @@ public class Choice : MonoBehaviour{
 	public int priority; //0 Resources, 1 oportunity, 2 Ideas, 3 Bad
 	public int showChance;
 	public bool available;
+	public bool limited;
+	public RectTransform upgradesPanel;
+	public Text upgradeTextPrefab;
 	public virtual bool Resolve(bool selected)
 	{
 		resolved--;
@@ -20,7 +24,7 @@ public class Choice : MonoBehaviour{
 		return true;
 	}
 
-	public virtual bool isAvailable()
+	public virtual bool IsAvailable()
 	{
 		return available;
 	}
@@ -35,4 +39,10 @@ public class Choice : MonoBehaviour{
 		return "";
 	}
 
+	public Text AddUpgradeText ()
+	{
+		Text upgradeText = Instantiate<Text>(upgradeTextPrefab, Vector2.zero, Quaternion.identity);
+		upgradeText.transform.parent = upgradesPanel;
+		return upgradeText;
+	}
 }

@@ -10,7 +10,7 @@ public class Wood : Choice {
 		if (selected)
 		{
 			Game.instance.Wood += 1;
-			if (axe.isAvailable())
+			if (!axe.available)
 			{
 				Game.instance.Wood += 1;
 			}
@@ -20,7 +20,7 @@ public class Wood : Choice {
 
 	public override string GetDescription()
 	{
-		if (axe.isAvailable())
+		if (!axe.available) // purchased
 		{
 			return "Gather 2 wood with your Axe.";
 		}
