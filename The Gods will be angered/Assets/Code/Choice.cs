@@ -42,7 +42,7 @@ public class Choice : MonoBehaviour{
 	public Text AddUpgradeText ()
 	{
 		Text upgradeText = Instantiate<Text>(upgradeTextPrefab, Vector2.zero, Quaternion.identity);
-		upgradeText.transform.parent = upgradesPanel;
+		upgradeText.transform.SetParent(upgradesPanel);
 		return upgradeText;
 	}
 }
