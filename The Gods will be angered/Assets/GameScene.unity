@@ -817,6 +817,7 @@ MonoBehaviour:
   - {fileID: 299634746}
   - {fileID: 2109151851}
   - {fileID: 2118187944}
+  - {fileID: 644418385}
   bad:
   - {fileID: 1531251607}
   - {fileID: 1025452461}
@@ -857,6 +858,9 @@ MonoBehaviour:
   actionsText: {fileID: 471569754}
   _dailyFoodCost: 1
   dailyFoodCostText: {fileID: 143880912}
+  noColor: {r: 0.8235294, g: 0.06660901, b: 0.06660901, a: 1}
+  lowColor: {r: 1, g: 0.555071, b: 0.21323532, a: 1}
+  regularColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   modalWindow: {fileID: 594637911}
   gameOverPanel: {fileID: 1170859426}
   gameOverText: {fileID: 1907595219}
@@ -1369,6 +1373,7 @@ Transform:
   m_Children:
   - {fileID: 1266028774}
   - {fileID: 1310524200}
+  - {fileID: 644418384}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2374,12 +2379,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 644418383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000015258789, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1932162505}
-  m_RootOrder: 7
+  m_Father: {fileID: 311857653}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &644418385
 MonoBehaviour:
@@ -2403,7 +2408,7 @@ MonoBehaviour:
     type: 2}
   upgradeText: {fileID: 0}
   onShowSound: []
-  _color: {r: 0.4627451, g: 0.70980394, b: 1, a: 1}
+  _color: {r: 1, g: 1, b: 1, a: 1}
   knife: {fileID: 2109151851}
 --- !u!1 &651582116
 GameObject:
@@ -6659,7 +6664,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1932162505}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1658459611
 MonoBehaviour:
@@ -7851,7 +7856,6 @@ Transform:
   - {fileID: 299634745}
   - {fileID: 2109151852}
   - {fileID: 2118187943}
-  - {fileID: 644418384}
   - {fileID: 1658459610}
   m_Father: {fileID: 0}
   m_RootOrder: 3

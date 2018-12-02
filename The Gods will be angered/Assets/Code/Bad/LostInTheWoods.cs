@@ -11,8 +11,7 @@ public class LostInTheWoods : Choice
 	{
 		if (selected)
 		{
-			//nothing
-
+			showChance -= 3;
 		}
 		else
 		{
@@ -28,6 +27,6 @@ public class LostInTheWoods : Choice
 
 	public override string GetDescription()
 	{
-		return "You're lost, set up a new camp (not chosen, lose your shelter) or look for your camp (chosen)";
+		return "You're lost in the woods.\n\nChosen: Spend the day looking for your camp and learn the area better to not repeat the mistake (Less chance to get lost again).\n\nNot Chosen: Set up a new camp. (lose your shelter)";
 	}
 }

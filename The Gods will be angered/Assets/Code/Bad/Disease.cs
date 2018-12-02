@@ -32,8 +32,8 @@ public class Disease : Choice {
 	{
 		if (!medicine.available)
 		{
-			return "You're sick, but the medicine helps. Rest, or risk making it worse. (%50 chance lose 1 health if not chosen).";
+			return "You're sick, but the medicine helps.\n\nChosen: Rest, or risk making it worse. \n\n Not Chosen: You go about your day, hoping the medicine is enough. (%50 chance lose 1 health).";
 		}
-		return "You're sick, you must rest. (or lose 2 health).";
+		return "You're sick, you must rest.\n\nChosen: Rest. \n\nNot Chosen: You do your best to work (or lose 2 health).";
 	}
 }

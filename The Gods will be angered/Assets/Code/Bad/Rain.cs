@@ -44,11 +44,11 @@ public class Rain : Choice {
 		{
 			if (Game.instance.Wood > 0)
 			{
-				return "Keep and eye on the shelter, or be about your day and you may need to spend wood on repairs (25% chance -1 wood if not chosen).";
+				return "You have a shelter to sleep in at night, but the rain is heavy during the day too.\n\nChosen: Make sure your shelter remains intact.\n\nNot Chosen: You leave the shelter while you go about your day, you may need to repair it when back (25% chance -1 wood).";
 			}
-			return "Keep and eye on the shelter, or be about your day and you may need to spend wood on repairs (25% chance to lose shelter).";
+			return "You have a shelter to sleep in at night, but the rain is heavy during the day too.\n\nChosen: Make sure your shelter remains intact.\n\nNot Chosen: You leave the shelter while you go about your day, it may fall apart, and you have no wood, so you'll have to rebuild from scratch (25% to lose shelter).";
 		}
-		return "Find a cave to hide in (10% chance of -1 Health if chosen), or brave the weather (50% chance of -1 Health if not chosen).";
+		return "A rainy night and no shelter.\n\nChosen: Find a cave to slee in, there is a sleight chance of a flood (10% chance of -1 health).\n\nNot Chosen: Sleep outdoors (50% chance of -1 health).";
 	}
 
 }

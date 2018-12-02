@@ -34,12 +34,12 @@ public class Heat : Choice {
 	{
 		if (!waterskin.available && waterskin.Water > 1)
 		{
-			return "A harsh sun, but your Waterskin keeps you refreshed throughout the day (-2 water if not chosen) or spend the day resting.";
+			return "A harsh sun, but your Waterskin may keep you refreshed throughout the day.\n\nChosen: You rest.\n\nNot Chosen: Take your watersking with you(-2 water).";
 		}
 		if (!waterskin.available && waterskin.Water > 0)
 		{
-			return "A harsh sun, but your Waterskin keeps you refreshed some of the day (15% chance -1 Health if not chosen) or spend the day resting.";
+			return "A harsh sun, but your Waterskin may keep you refreshed some of the day.\n\nChosen: Take your watersking with you (15% chance -1 health).\n\nNot Chosen: spend the day resting.";
 		}
-		return "A harsh sun forces you lay down and rest, or risk suffering a heat stroke (%75 chance -1 Health if not chosen)";
+		return "A harsh sun forces you lay down and rest, or risk suffering a heat stroke.\n\nChosen: Rest in the shade.\n\nNot Chosen: You go about your day, risking dehydration (%75 chance -1 Health if not chosen).";
 	}
 }

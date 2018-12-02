@@ -50,19 +50,20 @@ public class Cold : Choice
 
 	public override string GetDescription()
 	{
+		string notChosen = "\n\nNot chosen: brave the weather (%50 chance of -1 health).";
 		if (!shelter.available)
 		{
 			if (Game.instance.Wood > 0)
 			{
-				return "Freezing night.\nBuild a fire and stay in your shelter (-1 Wood for fire) or brave the weather (%50 chance of -1 health).";
+				return "Freezing night.\n\nChosen: Build a fire and stay in your shelter (-1 Wood for fire)." + notChosen;
 			}
-			return "Freezing night.\nStay in your shelter (%25 chance of -1 Health) or brave the weather (%50 chance of -1 health).";
+			return "Freezing night.\n\nChosen: Stay in your shelter (%25 chance of -1 Health)." + notChosen;
 		}
 		if (Game.instance.Wood > 0)
 		{
-			return "Freezing night.\nFind a Cave and build a fire (-1 Wood for fire. 10% chance of -1 Health) or brave the weather (%50 chance of -1 health).";
+			return "Freezing night.\n\nChosen: Find a Cave and build a fire (-1 Wood for fire. 10% chance of -1 Health)." + notChosen;
 		}
-		return "Freezing night.\nFind a cave to hide in (%40 chance of -1 Health) or brave the weather (%50 chance of -1 health).";
+		return "Freezing night.\n\nChosen: Find a cave to hide in (%40 chance of -1 Health)." + notChosen;
 	}
 
 }

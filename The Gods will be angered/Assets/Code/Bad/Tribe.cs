@@ -49,12 +49,12 @@ public class Tribe : Choice {
 	{
 		if (!art.available)
 		{
-			return "Show them your Idol is the same as theirs (chosen) or let them ransack your camp (lose 1-4 clay)";
+			return "A neighboring tribe has learned of your clay.\n\nChosen: Show them your Idol, your Gods are their Gods.\n\nNot Chosen: Let them ransack your camp (lose 1-4 clay)";
 		}
 		if (!spear.available)
 		{
-			return "Fight off the tribe with your Spear (20% chance of -1 Health if chosen), or let them ransack your camp (lose 1-4 clay).";
+			return "A neighboring tribe has learned of your clay.\n\nChosen: Fight off the tribe with your Spear (20% chance of -1 health).\n\nNot Chosen: Let them ransack your camp (lose 1-4 clay)";
 		}
-		return "Beg for mercy (%50 chance to lose 1-4 clay), or let them ransack your camp (lose 1-4 clay).";
+		return "A neighboring tribe has learned of your clay.\n\nChosen: Beg for mercy (%50 chance to lose 1-4 clay).\n\nNot Chosen: Let them ransack your camp (lose 1-4 clay)";
 	}
 }

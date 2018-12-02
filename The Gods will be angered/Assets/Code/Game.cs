@@ -26,7 +26,7 @@ public class Game : MonoBehaviour {
 	public int Health
 	{
 		get { return _health; }
-		set { _health = value; SetText(healthText, value); if (_health <= 0) { currnetState = GameState.GameOver; }; }
+		set { _health = value; SetText(healthText, value); if (_health <= 0) { currnetState = GameState.GameOver; }; UpdateTextColor(healthText, value); }
 	}
 
 	public int _food;
@@ -34,7 +34,7 @@ public class Game : MonoBehaviour {
 	public int Food
 	{
 		get { return _food; }
-		set { _food = value; SetText(foodText, value); }
+		set { _food = value; SetText(foodText, value); UpdateTextColor(foodText, value); }
 	}
 
 	public int _clay;
@@ -170,6 +170,23 @@ public class Game : MonoBehaviour {
 	private void SetText(Text text, int value)
 	{
 		text.text = value.ToString();
+	}
+
+	public Color noColor;
+	public Color lowColor;
+	public Color regularColor;
+	private void UpdateTextColor (Text text, int value)
+	{
+		if (value <= 0)
+		{
+			text.color = noColor;
+		} else if (value <= 2)
+		{
+			text.color = lowColor;
+		} else
+		{
+			text.color = regularColor;
+		}
 	}
 
 
