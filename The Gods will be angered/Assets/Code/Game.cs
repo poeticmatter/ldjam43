@@ -26,7 +26,7 @@ public class Game : MonoBehaviour {
 	public int Health
 	{
 		get { return _health; }
-		set { _health = value; SetText(healthText, value); }
+		set { _health = value; SetText(healthText, value); if (_health <= 0) { currnetState = GameState.GameOver; }; }
 	}
 
 	public int _food;
@@ -151,12 +151,7 @@ public class Game : MonoBehaviour {
 				Food = 0;
 			}
 
-			if (Health <= 0)
-			{
-				Debug.Log("Resolution -> GameOver");
-				currnetState = GameState.GameOver;
-			}
-			else
+			if (Health > 0)
 			{
 				while (Health < DailyFoodCost)
 				{

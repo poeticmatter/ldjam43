@@ -38,8 +38,8 @@ public class Choices : MonoBehaviour {
 		chosenGood.Clear();
 
 		int badCount = (int) Mathf.Log(turn);
-		CreateAvailableChoices(badCount, bad, chosenBad);
-		CreateAvailableChoices(count - badCount, good, chosenGood);
+		CreateAvailableChoices(Random.Range(0,badCount), bad, chosenBad);
+		CreateAvailableChoices(count - availableChoices.Count, good, chosenGood);
 		AttachChoicesToUI();
 		
 	}
@@ -55,6 +55,7 @@ public class Choices : MonoBehaviour {
 				scoped.isOn = false;
 				scoped.GetComponentInChildren<Text>().text = availableChoices[i].title;
 				scoped.GetComponent<Description>().description = availableChoices[i].GetDescription();
+				scoped.GetComponentInChildren<Image>().color = availableChoices[i]._color;
 			}
 			else
 			{
@@ -102,6 +103,7 @@ public class Choices : MonoBehaviour {
 				selectIncrement += temp.showChance;
 				if (randomSelect < selectIncrement)
 				{
+					Debug.Log(temp.name + " added");
 					temp.resolved++;
 					if (temp.limited)
 					{

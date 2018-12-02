@@ -1,28 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Shelter : Choice
-{
+public class RefillWater : Choice {
+	public Waterskin waterskin;
 	public override bool Resolve(bool selected)
 	{
 		if (selected)
 		{
-			Game.instance.Wood -= 5;
-			AddUpgrade();
-			Debug.Log("resolve shelter");
+			waterskin.Water = 3;
 		}
 		return base.Resolve(selected);
 	}
 
 	public override bool IsAvailable()
 	{
-		return base.IsAvailable() && Game.instance.Wood >= 5;
+		return base.IsAvailable() && !waterskin.available && waterskin.Water < 3;
 	}
 
 	public override string GetDescription()
 	{
-		return "Build a shelter to protect you from the elements.\nCost: 5 wood.";
+		return "Refill your waterskin.";
 	}
 }

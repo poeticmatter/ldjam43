@@ -7,7 +7,11 @@ public class Sacrifice : Choice {
 	public GameObject modalWindow;
 	public GameObject sacrificePanel;
 	public Button sacrificeFoodButton;
+	public Button sacrificeHealthButton;
+	public Button sacrificeArtButton;
 
+	public Art art;
+	
 	private void Awake()
 	{
 		sacrificeFoodButton.onClick.AddListener(SacrificeFood);
@@ -29,7 +33,19 @@ public class Sacrifice : Choice {
 
 	public void SacrificeFood()
 	{
-		Game.instance.Food -= 1;
+		Game.instance.Food -= 2;
+		SetResolved();
+	}
+
+	public void SacrificeHealth()
+	{
+		Game.instance.Health -= 1;
+		SetResolved();
+	}
+
+	public void SacrificeArt()
+	{
+		art.LoseUpgrade();
 		SetResolved();
 	}
 
@@ -45,7 +61,8 @@ public class Sacrifice : Choice {
 		sacrificePanel.gameObject.SetActive(show);
 		if (show)
 		{
-			sacrificeFoodButton.interactable = Game.instance.Food > 0;
+			sacrificeFoodButton.interactable = Game.instance.Food >= 2;
+			sacrificeArtButton.interactable = !art.available;
 		}
 	}
 

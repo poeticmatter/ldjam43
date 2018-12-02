@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Meat : Choice {
 
+	public Spear spear;
+
 	public override bool Resolve(bool selected)
 	{
 		if (selected)
 		{	
 			Game.instance.Food += 2;
-			if (Random.value <0.25f)
+			if (spear.available && Random.value <0.25f)
 			{
 				Game.instance.Health--;
 			}
-			if (Random.value < 0.25f)
+			if (!spear.available && Random.value < 0.10f)
 			{
-				Game.instance.Wood--;
-				if (Game.instance.Wood <0)
-				{
-					Debug.LogError("Negative wood");
-					Game.instance.Wood = 0; //Dirty, but will prevent awkwardness
-				}
+				Game.instance.Health--;
+			}
+			if (!spear.available && Random.value < 0.05f)
+			{
+				spear.LoseUpgrade();
 			}
 		}
 		return base.Resolve(selected);
@@ -33,6 +34,10 @@ public class Meat : Choice {
 
 	public override string GetDescription()
 	{
-		return "Go hunting with a makeshift wooden spear (+2 Food. %25 chance -1 Health. %25 chance -1 Wood.";
+		if (!spear.available)
+		{
+			return "Go hunting with a stone tipped spear (+2 food 10% chance of -1 Health. 5% chance to lose spear).";
+		}
+		return "Go hunting with a makeshift wooden spear (+2 Food. %25 chance -1 Health.";
 	}
 }

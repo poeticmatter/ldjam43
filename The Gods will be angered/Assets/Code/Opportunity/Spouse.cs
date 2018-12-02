@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spouse : Choice {
 
+	public Shelter shelter;
+
 	public override bool Resolve(bool selected)
 	{
 		if (selected)
@@ -14,6 +16,11 @@ public class Spouse : Choice {
 			available = false;
 		}
 		return base.Resolve(selected);
+	}
+
+	public override bool IsAvailable()
+	{
+		return base.IsAvailable() && !shelter.available;
 	}
 
 	public override string GetDescription()

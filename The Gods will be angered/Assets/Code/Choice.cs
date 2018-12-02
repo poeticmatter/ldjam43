@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class Choice : MonoBehaviour{
 
 	public string title;
-	public int resolved = 1;
+	public int resolved = 0;
 	public int priority; //0 Resources, 1 oportunity, 2 Ideas, 3 Bad
 	public int showChance;
 	public bool available;
 	public bool limited;
 	public RectTransform upgradesPanel;
 	public Text upgradeTextPrefab;
+
+	public Text upgradeText = null;
+
+	public Color _color = Color.white;
 	public virtual bool Resolve(bool selected)
 	{
 		resolved--;
@@ -39,10 +43,21 @@ public class Choice : MonoBehaviour{
 		return "";
 	}
 
-	public Text AddUpgradeText ()
+	public void AddUpgrade ()
 	{
-		Text upgradeText = Instantiate<Text>(upgradeTextPrefab, Vector2.zero, Quaternion.identity);
+		upgradeText = Instantiate<Text>(upgradeTextPrefab, Vector2.zero, Quaternion.identity);
 		upgradeText.transform.SetParent(upgradesPanel);
-		return upgradeText;
+		available = false;
+		upgradeText.text = title;
+	}
+
+	public void LoseUpgrade()
+	{
+		available = true;
+		if (upgradeText != null)
+		{
+			Destroy(upgradeText.gameObject);
+			upgradeText = null;
+		}
 	}
 }

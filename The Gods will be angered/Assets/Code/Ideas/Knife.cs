@@ -1,27 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Axe : Choice {
+public class Knife : Choice {
 
 	public override bool Resolve(bool selected)
 	{
 		if (selected)
 		{
-			Game.instance.Wood -= 2;
 			AddUpgrade();
 		}
 		return base.Resolve(selected);
 	}
 
-	public override bool IsAvailable()
-	{
-		return base.IsAvailable() && Game.instance.Wood >= 2;
-	}
-
 	public override string GetDescription()
 	{
-		return "Build an Axe (+1 wood when gathering).\nCost: 2 wood.";
+		return "Fashion a knife out of stone, a very useful tool.";
 	}
 }

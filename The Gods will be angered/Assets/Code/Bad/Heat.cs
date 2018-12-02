@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Heat : Choice {
+	public Waterskin waterskin;
 
 	public override bool Resolve(bool selected)
 	{
-		bool hasWater = false;
 		if (selected)
 		{
 			//Nothing, rests.
 		}
-		else if (hasWater)
+		else if (!waterskin.available && waterskin.Water > 0)
 		{
-			//water--;
+			waterskin.Water--;
 		}
 		else
 		{
@@ -27,6 +27,10 @@ public class Heat : Choice {
 
 	public override string GetDescription()
 	{
-		return "A harsh sun forces you to go to the lake to cool, or risk suffering a heat stroke (%75 chance -1 Health if not chosen)";
+		if (!waterskin.available && waterskin.Water > 0)
+		{
+			return "You Waterskin keeps you refreshed throughout the day. (Chosen or not)";
+		}
+		return "A harsh sun forces you lay down and rest, or risk suffering a heat stroke (%75 chance -1 Health if not chosen)";
 	}
 }
